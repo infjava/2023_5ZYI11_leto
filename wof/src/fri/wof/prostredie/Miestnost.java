@@ -85,7 +85,7 @@ public class Miestnost {
         System.out.println("Teraz si v miestnosti " + this.popisMiestnosti);
         System.out.print("Vychody: ");
         for (String smer : this.vychody.keySet()) {
-            System.out.print(smer);
+            System.out.format("%s ", smer);
         }
 
         System.out.println();

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Trieda Miestnost realizuje jednu miestnost/priestor v celom priestore hry.
@@ -14,10 +15,7 @@ import java.util.ArrayList;
  */
 public class Miestnost {
     private final String popisMiestnosti;
-    private Miestnost severnyVychod;
-    private Miestnost juznyVychod;
-    private Miestnost vychodnyVychod;
-    private Miestnost zapadnyVychod;
+    private final HashMap<String, Miestnost> vychody;
     private final ArrayList<Predmet> predmety;
 
     /**
@@ -30,6 +28,7 @@ public class Miestnost {
     public Miestnost(String popis) {
         this.popisMiestnosti = popis;
         this.predmety = new ArrayList<>();
+        this.vychody = new HashMap<>();
     }
 
     /**
@@ -43,16 +42,16 @@ public class Miestnost {
      */
     public void nastavVychody(Miestnost sever, Miestnost vychod, Miestnost juh, Miestnost zapad) {
         if (sever != null) {
-            this.severnyVychod = sever;
+            this.vychody.put("sever", sever);
         }
         if (vychod != null) {
-            this.vychodnyVychod = vychod;
+            this.vychody.put("vychod", vychod);
         }
         if (juh != null) {
-            this.juznyVychod = juh;
+            this.vychody.put("juh", juh);
         }
         if (zapad != null) {
-            this.zapadnyVychod = zapad;
+            this.vychody.put("zapad", zapad);
         }
     }
 
@@ -83,17 +82,8 @@ public class Miestnost {
     void vypisStavMiestnosti() {
         System.out.println("Teraz si v miestnosti " + this.popisMiestnosti);
         System.out.print("Vychody: ");
-        if (this.severnyVychod != null) {
-            System.out.print("sever ");
-        }
-        if (this.vychodnyVychod != null) {
-            System.out.print("vychod ");
-        }
-        if (this.juznyVychod != null) {
-            System.out.print("juh ");
-        }
-        if (this.zapadnyVychod != null) {
-            System.out.print("zapad ");
+        for (String smer : this.vychody.keySet()) {
+            System.out.print(smer);
         }
 
         System.out.println();
@@ -108,12 +98,6 @@ public class Miestnost {
     }
 
     Miestnost getMiestnostVSmere(String smer) {
-        return switch (smer) {
-            case "sever" -> this.severnyVychod;
-            case "vychod" -> this.vychodnyVychod;
-            case "juh" -> this.juznyVychod;
-            case "zapad" -> this.zapadnyVychod;
-            default -> null;
-        };
+        return this.vychody.get(smer);
     }
 }

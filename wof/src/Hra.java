@@ -102,7 +102,7 @@ public class Hra  {
         }
 
         String nazovPrikazu = prikaz.getNazov();
-        
+
         switch (nazovPrikazu) {
             case "pomoc":
                 this.vypisNapovedu();
@@ -154,13 +154,7 @@ public class Hra  {
         String smer = prikaz.getParameter();
 
         // Pokus o opustenie aktualnej miestnosti danym vychodom.
-        var novaMiestnost = switch (smer) {
-            case "sever" -> this.aktualnaMiestnost.getSevernyVychod();
-            case "vychod" -> this.aktualnaMiestnost.getVychodnyVychod();
-            case "juh" -> this.aktualnaMiestnost.getJuznyVychod();
-            case "zapad" -> this.aktualnaMiestnost.getZapadnyVychod();
-            default -> null;
-        };
+        var novaMiestnost = this.aktualnaMiestnost.getMiestnostVSmere(smer);
 
         if (novaMiestnost == null) {
             System.out.println("Tam nie je vychod!");

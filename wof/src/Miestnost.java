@@ -13,12 +13,12 @@ import java.util.ArrayList;
  * @version 2012.02.21
  */
 public class Miestnost {
-    private String popisMiestnosti;
+    private final String popisMiestnosti;
     private Miestnost severnyVychod;
     private Miestnost juznyVychod;
     private Miestnost vychodnyVychod;
     private Miestnost zapadnyVychod;
-    private ArrayList<Predmet> predmety;
+    private final ArrayList<Predmet> predmety;
 
     /**
      * Vytvori miestnost popis ktorej je v parametrom.

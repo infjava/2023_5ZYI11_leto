@@ -1,10 +1,9 @@
-package fri.wof.prostredie;
+package sk.uniza.fri.wof.prostredie;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Trieda fri.wof.prostredie.Miestnost realizuje jednu miestnost/priestor v celom priestore hry.
+ * Trieda sk.uniza.fri.wof.prostredie.Miestnost realizuje jednu miestnost/priestor v celom priestore hry.
  * Kazda "miestnost" je z inymi miestnostami spojena vychodmi. 
  * Vychody z miestnosti su oznacovane svetovymi stranami sever, vychod, juh
  * a zapad. Pre kazdy vychod si miestnost pamata odkaz na susednu miestnost
@@ -18,7 +17,7 @@ import java.util.HashMap;
 public class Miestnost {
     private final String popisMiestnosti;
     private final HashMap<String, Miestnost> vychody;
-    private final ArrayList<Predmet> predmety;
+    private final HashMap<String, Predmet> predmety;
 
     /**
      * Vytvori miestnost popis ktorej je v parametrom.
@@ -29,32 +28,12 @@ public class Miestnost {
      */
     public Miestnost(String popis) {
         this.popisMiestnosti = popis;
-        this.predmety = new ArrayList<>();
         this.vychody = new HashMap<>();
+        this.predmety = new HashMap<>();
     }
 
-    /**
-     * Nastavi vychody z miestnosti. Kazdy vychod je urceny bud odkazom 
-     * na miestnost alebo hodnotou null, ak vychod tym smerom neexistuje.
-     * 
-     * @param sever miestnost smerom na sever.
-     * @param vychod miestnost smerom na vychod.
-     * @param juh miestnost smerom na juh.
-     * @param zapad miestnost smerom na zapad.
-     */
-    public void nastavVychody(Miestnost sever, Miestnost vychod, Miestnost juh, Miestnost zapad) {
-        if (sever != null) {
-            this.vychody.put("sever", sever);
-        }
-        if (vychod != null) {
-            this.vychody.put("vychod", vychod);
-        }
-        if (juh != null) {
-            this.vychody.put("juh", juh);
-        }
-        if (zapad != null) {
-            this.vychody.put("zapad", zapad);
-        }
+    public void nastavVychod(String smer, Miestnost miestnost) {
+        this.vychody.put(smer, miestnost);
     }
 
     /**
@@ -62,7 +41,7 @@ public class Miestnost {
      * @param predmet pokladany predmet
      */
     public void polozPredmet(Predmet predmet) {
-        this.predmety.add(predmet);
+        this.predmety.put(predmet.getNazov(), predmet);
     }
 
     /**
@@ -71,29 +50,21 @@ public class Miestnost {
      * @return zdvihnuty predmet
      */
     public Predmet zoberPredmet(String nazov) {
-        for (Predmet kontrolovanyPredmet : this.predmety) {
-            if (kontrolovanyPredmet.getNazov().equals(nazov)) {
-                this.predmety.remove(kontrolovanyPredmet);
-                return kontrolovanyPredmet;
-            }
-        }
-
-        return null;
+        return this.predmety.remove(nazov);
     }
 
-    public void vypisStavMiestnosti() {
+    public void vypisInfoOMiestnosti() {
         System.out.println("Teraz si v miestnosti " + this.popisMiestnosti);
         System.out.print("Vychody: ");
-        for (String smer : this.vychody.keySet()) {
-            System.out.format("%s ", smer);
+        for (var vychod : this.vychody.keySet()) {
+            System.out.printf("%s ", vychod);
         }
-
         System.out.println();
 
         if (!this.predmety.isEmpty()) {
             System.out.print("Predmety v miestnosti: ");
-            for (Predmet predmet : this.predmety) {
-                System.out.printf("%s ", predmet.getNazov());
+            for (var predmet : this.predmety.keySet()) {
+                System.out.printf("%s ", predmet);
             }
             System.out.println();
         }

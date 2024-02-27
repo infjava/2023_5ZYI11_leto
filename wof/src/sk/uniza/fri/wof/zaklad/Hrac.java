@@ -15,7 +15,7 @@ public class Hrac {
     }
 
     public void posunVSmere(String smer) {
-        Miestnost novaMiestnost = this.aktualnaMiestnost.getMiestnostVSmere(smer);
+        Miestnost novaMiestnost = this.aktualnaMiestnost.getVychodVSmere(smer).getMiestnost();
         if (novaMiestnost == null) {
             System.out.println("Tam nie je vychod!");
         } else {

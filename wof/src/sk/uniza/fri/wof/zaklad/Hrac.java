@@ -55,6 +55,11 @@ public class Hrac {
 
     public void pouziPredmet(String predmet) {
         var pouzivanyPredmet = this.inventar.get(predmet);
-        pouzivanyPredmet.pouzi();
+
+        if (pouzivanyPredmet != null) {
+            pouzivanyPredmet.pouzi();
+        } else {
+            System.out.format("Predmet %s sa nenasiel v inventari%n", predmet);
+        }
     }
 }

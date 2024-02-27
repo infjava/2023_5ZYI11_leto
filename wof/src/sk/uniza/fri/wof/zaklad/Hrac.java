@@ -3,7 +3,6 @@ package sk.uniza.fri.wof.zaklad;
 import sk.uniza.fri.wof.prostredie.Miestnost;
 import sk.uniza.fri.wof.prostredie.Predmet;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Hrac {
@@ -52,5 +51,10 @@ public class Hrac {
 
     public Miestnost getAktualnaMiestnost() {
         return this.aktualnaMiestnost;
+    }
+
+    public void pouziPredmet(String predmet) {
+        var pouzivanyPredmet = this.inventar.get(predmet);
+        pouzivanyPredmet.pouzi();
     }
 }

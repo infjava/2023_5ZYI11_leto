@@ -23,4 +23,9 @@ public class Navleky implements Predmet {
             System.out.println("Vyzul si si navleky");
         }
     }
+
+    @Override
+    public boolean mozemPolozit() {
+        return !this.obute;
+    }
 }

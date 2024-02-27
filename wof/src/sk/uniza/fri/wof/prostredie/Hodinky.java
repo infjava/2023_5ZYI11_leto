@@ -16,4 +16,9 @@ public class Hodinky implements Predmet {
 
         System.out.println(dtf.format(now));
     }
+
+    @Override
+    public boolean mozemPolozit() {
+        return true;
+    }
 }

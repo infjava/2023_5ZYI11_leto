@@ -30,7 +30,9 @@ public class Zemeplocha {
                 if ((cislo % 2) == 0) { //vela zveri
                     this.policka[i][j].setObyvatelia(new Tvory (25, TypObyvatela.SRNKY));
                 } else {
-                    if ((cislo % 5) == 0) {
+                    if ((cislo % 13) == 0) {
+                        this.policka[i][j].setObyvatelia(new Magovia(5, 3));
+                    } else if ((cislo % 5) == 0) {
                         if ((i % 2) == 0) { //sem tam ine
                             this.policka[i][j].setObyvatelia(new Tvory(10, TypObyvatela.ZAJACE));
                         } else {

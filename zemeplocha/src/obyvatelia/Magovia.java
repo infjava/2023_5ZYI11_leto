@@ -17,7 +17,9 @@ public class Magovia extends Tvory {
     public ArrayList<Akcia> dajAkcieNa(Policko mojePolicko, Policko druhePolicko) {
         var akcie = new ArrayList<Akcia>();
 
-        if (druhePolicko.getObyvatelia().isPresent()) {
+        var obyvatelia = druhePolicko.getObyvatelia();
+
+        if (obyvatelia.isPresent() && !(obyvatelia.get() instanceof Magovia)) {
             akcie.add(new AkciaMnozenie(mojePolicko, druhePolicko));
         }
 

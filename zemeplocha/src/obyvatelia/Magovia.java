@@ -9,8 +9,12 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class Magovia extends Tvory {
+    private final int koeficientMagie;
+
     public Magovia(int populacia, int koeficientMagie) {
         super(populacia, TypObyvatela.MAGOVIA);
+
+        this.koeficientMagie = koeficientMagie;
     }
 
     @Override
@@ -24,5 +28,10 @@ public class Magovia extends Tvory {
         }
 
         return akcie;
+    }
+
+    @Override
+    public Tvory vytvorTvory(int pocetTvorov) {
+        return new Magovia(pocetTvorov, this.koeficientMagie);
     }
 }

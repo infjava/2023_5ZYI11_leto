@@ -19,7 +19,7 @@ public class AkciaMnozenie implements Akcia {
 
     @Override
     public void vykonaj(Zemeplocha zemeplocha) {
-        var mnozeneTvory = this.druhePolicko.getObyvatelia().get();
+        var mnozeneTvory = this.druhePolicko.getObyvatelia().orElseThrow();
         mnozeneTvory.rozmnoz(this.koeficientMagie);
     }
 }

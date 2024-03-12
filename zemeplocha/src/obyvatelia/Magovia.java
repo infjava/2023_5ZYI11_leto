@@ -2,11 +2,9 @@ package obyvatelia;
 
 import akcie.Akcia;
 import akcie.AkciaMnozenie;
-import akcie.AkciaPresidlenie;
 import hlavnyBalik.Policko;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 public class Magovia extends Tvory {
     private final int koeficientMagie;
@@ -24,7 +22,7 @@ public class Magovia extends Tvory {
         var obyvatelia = druhePolicko.getObyvatelia();
 
         if (obyvatelia.isPresent() && !(obyvatelia.get() instanceof Magovia)) {
-            akcie.add(new AkciaMnozenie(mojePolicko, druhePolicko));
+            akcie.add(new AkciaMnozenie(druhePolicko, this.koeficientMagie));
         }
 
         return akcie;

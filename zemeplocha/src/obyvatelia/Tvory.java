@@ -67,4 +67,8 @@ public class Tvory {
     public Tvory vytvorTvory(int pocetTvorov) {
         return new Tvory(pocetTvorov, this.typObyvatela);
     }
+
+    public void rozmnoz(int koeficient) {
+        this.populacia *= koeficient;
+    }
 }

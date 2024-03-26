@@ -3,6 +3,7 @@ package sk.uniza.fri;
 import sk.uniza.fri.nacitavanie.NacitavacSuboru;
 import sk.uniza.fri.operacie.Delenie;
 import sk.uniza.fri.operacie.Scitanie;
+import sk.uniza.fri.vynimky.DelenieNulouException;
 import sk.uniza.fri.vynimky.NespravneRozmeryMaticeException;
 
 import java.io.FileNotFoundException;
@@ -62,6 +63,8 @@ public class KonzoloveMenu {
                         System.out.println("Vysledok delenia po prvkoch ulozeny do matice C");
                     } catch (NespravneRozmeryMaticeException e) {
                         System.out.println("Nespravne rozmery matic pri deleni");
+                    } catch (DelenieNulouException e) {
+                        System.out.println("Delenie nulou");
                     }
                     break;
                 case 5:
@@ -70,6 +73,8 @@ public class KonzoloveMenu {
                         System.out.println("Vysledok scitania po prvkoch ulozeny do matice C");
                     } catch (NespravneRozmeryMaticeException e) {
                         System.out.println("Nespravne rozmery matic pri scitani");
+                    } catch (DelenieNulouException e) {
+                        throw new RuntimeException(e);
                     }
                     break;
                 case 0:

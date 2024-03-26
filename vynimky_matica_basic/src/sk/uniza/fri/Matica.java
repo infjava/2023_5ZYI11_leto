@@ -2,6 +2,7 @@ package sk.uniza.fri;
 
 
 import sk.uniza.fri.operacie.Operacia;
+import sk.uniza.fri.vynimky.DelenieNulouException;
 import sk.uniza.fri.vynimky.NespravneRozmeryMaticeException;
 
 import java.util.Random;
@@ -47,7 +48,7 @@ public class Matica {
         return this.polePrvkov[i][j];
     }
 
-    public Matica vykonajOperaciuPoPrvkoch(Matica mat2, Operacia operacia) throws NespravneRozmeryMaticeException {
+    public Matica vykonajOperaciuPoPrvkoch(Matica mat2, Operacia operacia) throws NespravneRozmeryMaticeException, DelenieNulouException {
         if (this.pocetRiadkov != mat2.getPocetRiadkov() || this.pocetStlpcov != mat2.getPocetStlpcov()) {
             throw new NespravneRozmeryMaticeException();
         }

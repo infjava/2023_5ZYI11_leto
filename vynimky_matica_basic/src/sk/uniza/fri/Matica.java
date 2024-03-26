@@ -46,6 +46,11 @@ public class Matica {
     }
 
     public Matica vydelMaticePoPrvkoch(Matica mat2) {
+        if (this.pocetRiadkov != mat2.getPocetRiadkov() || this.pocetStlpcov != mat2.getPocetStlpcov()) {
+            System.out.println("Nespravne rozmery matice pri deleni");
+            return null;
+        }
+
         double[][] vysledok = new double[this.pocetRiadkov][this.pocetStlpcov];
         for (int i = 0; i < vysledok.length; i++) {
             for (int j = 0; j < vysledok[0].length; j++) {

@@ -50,11 +50,10 @@ public class KonzoloveMenu {
                     System.out.println("Vysledok nasobenia ulozeny do matice C");
                     break;
                 case 4:
-                    try {
-                        poleMatic[2] = poleMatic[0].vydelMaticePoPrvkoch(poleMatic[1]);
+                    var novaMatica = poleMatic[0].vydelMaticePoPrvkoch(poleMatic[1]);
+                    if (novaMatica != null) {
+                        poleMatic[2] = novaMatica;
                         System.out.println("Vysledok delenia po prvkoch ulozeny do matice C");
-                    } catch (ArrayIndexOutOfBoundsException e) {
-                        System.out.println("Nespravne velkosti matice");
                     }
                     break;
                 case 5:

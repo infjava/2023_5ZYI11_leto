@@ -1,6 +1,8 @@
 package sk.uniza.fri;
 
 
+import sk.uniza.fri.vynimky.NespravneRozmeryMaticeException;
+
 import java.util.NoSuchElementException;
 import java.util.Random;
 
@@ -45,10 +47,9 @@ public class Matica {
         return this.polePrvkov[i][j];
     }
 
-    public Matica vydelMaticePoPrvkoch(Matica mat2) {
+    public Matica vydelMaticePoPrvkoch(Matica mat2) throws NespravneRozmeryMaticeException {
         if (this.pocetRiadkov != mat2.getPocetRiadkov() || this.pocetStlpcov != mat2.getPocetStlpcov()) {
-            System.out.println("Nespravne rozmery matice pri deleni");
-            return null;
+            throw new NespravneRozmeryMaticeException();
         }
 
         double[][] vysledok = new double[this.pocetRiadkov][this.pocetStlpcov];

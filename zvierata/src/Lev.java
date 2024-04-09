@@ -12,10 +12,10 @@ public class Lev extends Zviera implements Nazvany {
 
     @Override
     public void zozer(Potrava potrava) {
-        if (potrava instanceof SurovySteak) {
-            System.out.println("Lev zozral surovy steak");
-        } else {
-            System.out.println("Lev len cumi, ci to myslite vazne");
+        if (!(potrava instanceof SurovySteak)) {
+            throw new NespravnaPotravaException();
         }
+
+        System.out.println("Lev zozral surovy steak");
     }
 }

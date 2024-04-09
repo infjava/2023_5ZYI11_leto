@@ -20,5 +20,9 @@ public class Main {
         klietkaNaZajaca.vypisObsah();
         klietkaNaZajaca.vloz(zajac);
         klietkaNaZajaca.vypisObsah();
+
+        var klietkaNaKraviny = new Klietka();
+        klietkaNaKraviny.vloz(5);
+        klietkaNaKraviny.vypisObsah();
     }
 }

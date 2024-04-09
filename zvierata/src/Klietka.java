@@ -15,7 +15,7 @@ public class Klietka {
         }
     }
 
-    public void vloz(Object lev) {
-        this.obsahKlietky = lev;
+    public void vloz(Object zviera) {
+        this.obsahKlietky = zviera;
     }
 }

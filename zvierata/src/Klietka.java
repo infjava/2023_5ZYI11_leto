@@ -21,4 +21,8 @@ public class Klietka<T extends Zviera> {
     public void vloz(T zviera) {
         this.obsahKlietky = zviera;
     }
+
+    public void hodPotravu(Potrava potrava) {
+        this.obsahKlietky.zozer(potrava);
+    }
 }

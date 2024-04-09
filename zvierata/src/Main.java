@@ -13,5 +13,12 @@ public class Main {
         klietkaNaMys.vypisObsah();
         klietkaNaMys.vloz(mys);
         klietkaNaMys.vypisObsah();
+
+        var zajac = new Zajac("Bugs");
+        var klietkaNaZajaca = new Klietka();
+
+        klietkaNaZajaca.vypisObsah();
+        klietkaNaZajaca.vloz(zajac);
+        klietkaNaZajaca.vypisObsah();
     }
 }

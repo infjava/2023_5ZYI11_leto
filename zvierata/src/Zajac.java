@@ -1,7 +1,7 @@
-public class Lev implements Nazvany {
+public class Zajac implements Nazvany {
     private final String meno;
 
-    public Lev(String meno) {
+    public Zajac(String meno) {
         this.meno = meno;
     }
 

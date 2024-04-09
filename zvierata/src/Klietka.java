@@ -8,8 +8,8 @@ public class Klietka {
     public void vypisObsah() {
         if (this.obsahKlietky == null) {
             System.out.println("Klietka je prazdna");
-        } else if (this.obsahKlietky instanceof Lev lev) {
-            System.out.printf("V klietke je lev %s%n", lev.getMeno());
+        } else if (this.obsahKlietky instanceof Nazvany nazvaneZviera) {
+            System.out.printf("V klietke je %s%n", nazvaneZviera.getMeno());
         } else {
             System.out.println("V klietke je zviera");
         }

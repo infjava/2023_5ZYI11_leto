@@ -13,6 +13,8 @@ public class Main {
         klietkaNaMys.vypisObsah();
         klietkaNaMys.vloz(mys);
         klietkaNaMys.vypisObsah();
+        klietkaNaMys.vloz(new Lev("Simba"));
+        klietkaNaMys.vypisObsah();
 
         var zajac = new Zajac("Bugs");
         var klietkaNaZajaca = new Klietka();

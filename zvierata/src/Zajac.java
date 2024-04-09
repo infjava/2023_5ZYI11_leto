@@ -1,4 +1,4 @@
-public class Zajac extends Zviera implements Nazvany {
+public class Zajac extends Zviera<Mrkva> implements Nazvany {
     private final String meno;
 
     public Zajac(String meno) {
@@ -11,11 +11,7 @@ public class Zajac extends Zviera implements Nazvany {
     }
 
     @Override
-    public void zozer(Potrava potrava) {
-        if (!(potrava instanceof Mrkva)) {
-            throw new NespravnaPotravaException();
-        }
-
+    public void zozer(Mrkva potrava) {
         System.out.println("Zajac schrumkal mrkvu");
     }
 }

@@ -1,7 +1,8 @@
 /**
  * @param <T> Typ zvierata v klietke
+ * @param <U> Potrava pre zviera
  */
-public class Klietka<T extends Zviera> {
+public class Klietka<T extends Zviera<U>, U extends Potrava> {
     private T obsahKlietky;
 
     public Klietka() {
@@ -22,7 +23,7 @@ public class Klietka<T extends Zviera> {
         this.obsahKlietky = zviera;
     }
 
-    public void hodPotravu(Potrava potrava) {
+    public void hodPotravu(U potrava) {
         this.obsahKlietky.zozer(potrava);
     }
 }

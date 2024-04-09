@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         var lev = new Lev("Alex");
-        var klietkaNaLeva = new Klietka<Lev>();
+        var klietkaNaLeva = new Klietka<Lev, SurovySteak>();
 
         klietkaNaLeva.vypisObsah();
         klietkaNaLeva.vloz(lev);
@@ -10,7 +10,7 @@ public class Main {
         klietkaNaLeva.hodPotravu(new SurovySteak());
 
         var mys = new Mys();
-        var klietkaNaMys = new Klietka<Mys>();
+        var klietkaNaMys = new Klietka<Mys, Syr>();
 
         klietkaNaMys.vypisObsah();
         klietkaNaMys.vloz(mys);
@@ -21,14 +21,14 @@ public class Main {
         klietkaNaMys.hodPotravu(new Syr());
 
         var zajac = new Zajac("Bugs");
-        var klietkaNaZajaca = new Klietka<Zajac>();
+        var klietkaNaZajaca = new Klietka<Zajac, Mrkva>();
 
         klietkaNaZajaca.vypisObsah();
         klietkaNaZajaca.vloz(zajac);
         klietkaNaZajaca.vypisObsah();
 
         klietkaNaZajaca.hodPotravu(new Mrkva());
-        klietkaNaZajaca.hodPotravu(new SurovySteak());
+        // klietkaNaZajaca.hodPotravu(new SurovySteak());
 
 //        var klietkaNaCisla = new Klietka<Integer>();
 //        klietkaNaCisla.vloz(5);

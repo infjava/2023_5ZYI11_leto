@@ -1,5 +1,8 @@
-public class Klietka {
-    private Zviera obsahKlietky;
+/**
+ * @param <T> Typ zvierata v klietke
+ */
+public class Klietka<T> {
+    private T obsahKlietky;
 
     public Klietka() {
         this.obsahKlietky = null;
@@ -15,7 +18,7 @@ public class Klietka {
         }
     }
 
-    public void vloz(Zviera zviera) {
+    public void vloz(T zviera) {
         this.obsahKlietky = zviera;
     }
 }

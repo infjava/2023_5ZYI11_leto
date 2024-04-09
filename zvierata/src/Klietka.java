@@ -1,19 +1,21 @@
 public class Klietka {
-    private Lev lev;
+    private Object obsahKlietky;
 
     public Klietka() {
-        this.lev = null;
+        this.obsahKlietky = null;
     }
 
     public void vypisObsah() {
-        if (this.lev == null) {
+        if (this.obsahKlietky == null) {
             System.out.println("Klietka je prazdna");
+        } else if (this.obsahKlietky instanceof Lev lev) {
+            System.out.printf("V klietke je lev %s%n", lev.getMeno());
         } else {
-            System.out.printf("V klietke je lev %s%n", this.lev.getMeno());
+            System.out.println("V klietke je zviera");
         }
     }
 
-    public void vloz(Lev lev) {
-        this.lev = lev;
+    public void vloz(Object lev) {
+        this.obsahKlietky = lev;
     }
 }

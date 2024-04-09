@@ -1,10 +1,17 @@
 public class Main {
     public static void main(String[] args) {
         var lev = new Lev("Alex");
-        var klietka = new Klietka();
+        var klietkaNaLeva = new Klietka();
 
-        klietka.vypisObsah();
-        klietka.vloz(lev);
-        klietka.vypisObsah();
+        klietkaNaLeva.vypisObsah();
+        klietkaNaLeva.vloz(lev);
+        klietkaNaLeva.vypisObsah();
+
+        var mys = new Mys();
+        var klietkaNaMys = new Klietka();
+
+        klietkaNaMys.vypisObsah();
+        klietkaNaMys.vloz(mys);
+        klietkaNaMys.vypisObsah();
     }
 }

@@ -1,2 +1,2 @@
-public class SurovySteak extends Potrava<Lev> {
+public class SurovySteak implements Potrava<Lev> {
 }

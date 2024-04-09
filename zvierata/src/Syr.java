@@ -1,2 +1,2 @@
-public class Syr extends Potrava<Mys> {
+public class Syr implements Potrava<Mys> {
 }

@@ -8,6 +8,7 @@ public class Main {
         klietkaNaLeva.vypisObsah();
 
         klietkaNaLeva.hodPotravu(new SurovySteak());
+        klietkaNaLeva.hodPotravu(new Zajac("Fluffy"));
 
         var mys = new Mys();
         var klietkaNaMys = new Klietka<Mys>();

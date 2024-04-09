@@ -23,8 +23,8 @@ public class Main {
         klietkaNaZajaca.vloz(zajac);
         klietkaNaZajaca.vypisObsah();
 
-        var klietkaNaCisla = new Klietka<Integer>();
-        klietkaNaCisla.vloz(5);
-        klietkaNaCisla.vypisObsah();
+//        var klietkaNaCisla = new Klietka<Integer>();
+//        klietkaNaCisla.vloz(5);
+//        klietkaNaCisla.vypisObsah();
     }
 }

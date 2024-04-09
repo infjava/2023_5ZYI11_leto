@@ -1,7 +1,7 @@
 /**
  * @param <T> Typ zvierata v klietke
  */
-public class Klietka<T> {
+public class Klietka<T extends Zviera> {
     private T obsahKlietky;
 
     public Klietka() {

@@ -1,5 +1,5 @@
 public class Klietka {
-    private Object obsahKlietky;
+    private Zviera obsahKlietky;
 
     public Klietka() {
         this.obsahKlietky = null;
@@ -15,7 +15,7 @@ public class Klietka {
         }
     }
 
-    public void vloz(Object zviera) {
+    public void vloz(Zviera zviera) {
         this.obsahKlietky = zviera;
     }
 }

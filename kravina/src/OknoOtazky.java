@@ -1,17 +1,21 @@
 import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 public class OknoOtazky {
     private final JFrame okno;
 
     public OknoOtazky() {
         this.okno = new JFrame("Otazka");
-        this.okno.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.okno.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+
+        this.okno.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                JOptionPane.showMessageDialog(null, "Ha, také ľahké to nebude, drahý.");
+            }
+        });
 
         this.okno.setLayout(new BorderLayout());
         this.okno.add(new JLabel("Chceš úspešne skončiť predmet Informatika 2?"), BorderLayout.NORTH);

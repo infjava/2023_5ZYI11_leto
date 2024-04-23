@@ -8,8 +8,13 @@ public class Main {
 
         okno.setLayout(new BorderLayout());
         okno.add(new JLabel("Chceš úspešne skončiť predmet Informatika 2?"), BorderLayout.NORTH);
-        okno.add(new JButton("Áno"), BorderLayout.WEST);
-        okno.add(new JButton("Nie"), BorderLayout.EAST);
+
+        var tlacitka = new JPanel();
+        tlacitka.setLayout(new GridLayout(1, 0, 20, 0));
+        tlacitka.add(new JButton("Áno"));
+        tlacitka.add(new JButton("Nie"));
+
+        okno.add(tlacitka, BorderLayout.CENTER);
 
         okno.pack();
         okno.setVisible(true);

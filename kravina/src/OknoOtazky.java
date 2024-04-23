@@ -3,6 +3,8 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class OknoOtazky {
     private final JFrame okno;
@@ -16,19 +18,33 @@ public class OknoOtazky {
 
         var tlacitka = new JPanel();
         tlacitka.setLayout(new GridLayout(1, 0, 20, 0));
-        JButton tlacitkoAno = new JButton("Áno");
+        var tlacitkoAno = new JButton("Áno");
+        var tlacitkoNie = new JButton("Nie");
 
-        tlacitkoAno.addActionListener(e -> {
-            JOptionPane.showMessageDialog(null, "Tak sa snaž!");
-            System.exit(0);
-        });
+        this.nastavUdalosti(tlacitkoAno, tlacitkoNie);
+        this.nastavUdalosti(tlacitkoNie, tlacitkoAno);
 
         tlacitka.add(tlacitkoAno);
-        tlacitka.add(new JButton("Nie"));
+        tlacitka.add(tlacitkoNie);
 
         this.okno.add(tlacitka, BorderLayout.CENTER);
 
         this.okno.pack();
+    }
+
+    private void nastavUdalosti(JButton tlacitko, JButton tlacitkoDruhe) {
+        tlacitko.addActionListener(e -> {
+            JOptionPane.showMessageDialog(null, "Tak sa snaž!");
+            System.exit(0);
+        });
+
+        tlacitko.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                tlacitko.setText("Áno");
+                tlacitkoDruhe.setText("Nie");
+            }
+        });
     }
 
     public void zobraz() {

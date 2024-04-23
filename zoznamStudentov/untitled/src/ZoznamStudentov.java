@@ -27,7 +27,7 @@ public class ZoznamStudentov {
     }
 
     private void pridajStudenta() {
-        var dialog = new PridajStudenta();
+        var dialog = new PridajStudenta(this.studenti);
         dialog.setVisible(true);
     }
 

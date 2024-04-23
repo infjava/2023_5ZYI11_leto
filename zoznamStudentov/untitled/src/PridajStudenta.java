@@ -2,13 +2,15 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class PridajStudenta extends JDialog {
+    private final DefaultListModel<Student> studenti;
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
     private JTextField meno;
     private JTextField priezvisko;
 
-    public PridajStudenta() {
+    public PridajStudenta(DefaultListModel<Student> studenti) {
+        this.studenti = studenti;
         this.setTitle("Pridanie nového študenta");
 
         this.setContentPane(this.contentPane);
@@ -40,7 +42,13 @@ public class PridajStudenta extends JDialog {
     }
 
     private void onOK() {
-        // add your code here
+        this.studenti.addElement(
+            new Student(
+                this.meno.getText(),
+                this.priezvisko.getText()
+            )
+        );
+
         this.dispose();
     }
 

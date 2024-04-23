@@ -18,7 +18,11 @@ public class OknoOtazky {
 
         var tlacitka = new JPanel();
         tlacitka.setLayout(new GridLayout(1, 0, 20, 0));
-        tlacitka.add(new JButton("Áno"));
+        JButton tlacitkoAno = new JButton("Áno");
+
+        tlacitkoAno.addActionListener(new ReakciaNaAno());
+
+        tlacitka.add(tlacitkoAno);
         tlacitka.add(new JButton("Nie"));
 
         this.okno.add(tlacitka, BorderLayout.CENTER);

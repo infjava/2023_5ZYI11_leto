@@ -18,7 +18,7 @@ public class OknoOtazky {
         tlacitka.setLayout(new GridLayout(1, 0, 20, 0));
         JButton tlacitkoAno = new JButton("Áno");
 
-        tlacitkoAno.addActionListener((ActionEvent e) -> {
+        tlacitkoAno.addActionListener(e -> {
             JOptionPane.showMessageDialog(null, "Tak sa snaž!");
             System.exit(0);
         });

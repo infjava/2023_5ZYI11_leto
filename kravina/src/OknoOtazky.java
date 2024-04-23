@@ -21,6 +21,8 @@ public class OknoOtazky {
         var tlacitkoAno = new JButton("Áno");
         var tlacitkoNie = new JButton("Nie");
 
+        tlacitkoNie.setFocusable(false);
+
         this.nastavUdalosti(tlacitkoAno, tlacitkoNie);
         this.nastavUdalosti(tlacitkoNie, tlacitkoAno);
 
@@ -42,7 +44,9 @@ public class OknoOtazky {
             @Override
             public void mouseEntered(MouseEvent e) {
                 tlacitko.setText("Áno");
+                tlacitko.setFocusable(true);
                 tlacitkoDruhe.setText("Nie");
+                tlacitkoDruhe.setFocusable(false);
             }
         });
     }

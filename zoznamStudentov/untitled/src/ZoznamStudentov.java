@@ -22,6 +22,13 @@ public class ZoznamStudentov {
         this.okno.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.okno.add(this.obsahOkna);
         this.okno.pack();
+
+        this.pridaj.addActionListener(e -> this.pridajStudenta());
+    }
+
+    private void pridajStudenta() {
+        var dialog = new PridajStudenta();
+        dialog.setVisible(true);
     }
 
     public void zobraz() {

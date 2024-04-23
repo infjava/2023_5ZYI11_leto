@@ -5,14 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class OknoOtazky {
-    private class ReakciaNaAno implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            JOptionPane.showMessageDialog(null, "Tak sa snaž!");
-            System.exit(0);
-        }
-    }
-
     private final JFrame okno;
 
     public OknoOtazky() {
@@ -26,7 +18,13 @@ public class OknoOtazky {
         tlacitka.setLayout(new GridLayout(1, 0, 20, 0));
         JButton tlacitkoAno = new JButton("Áno");
 
-        tlacitkoAno.addActionListener(new ReakciaNaAno());
+        tlacitkoAno.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Tak sa snaž!");
+                System.exit(0);
+            }
+        });
 
         tlacitka.add(tlacitkoAno);
         tlacitka.add(new JButton("Nie"));
